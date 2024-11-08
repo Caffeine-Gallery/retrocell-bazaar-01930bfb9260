@@ -36,7 +36,7 @@ actor {
                 "Apple",
                 1199,
                 "Latest flagship with A17 Pro chip",
-                "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg",
+                "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-black-titanium-select?wid=940&hei=1112&fmt=png-alpha",
                 "A17 Pro chip, 48MP camera",
                 "256GB",
                 "Natural Titanium"
@@ -46,7 +46,7 @@ actor {
                 "Samsung",
                 1299,
                 "Premium Android flagship with S Pen",
-                "https://image-us.samsung.com/us/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-color-titanium-gray-mo.jpg",
+                "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24-ultra-s928-sm-s928bzggeub-thumb-537234069",
                 "Snapdragon 8 Gen 3, 200MP camera",
                 "512GB",
                 "Titanium Gray"
@@ -56,10 +56,30 @@ actor {
                 "Google",
                 999,
                 "Advanced AI photography capabilities",
-                "https://lh3.googleusercontent.com/PB5YJQQoZOTCGQjvwkRoHpTHLdXrQe9qhLxGxAgWy5vKhvyVvC8VHYJc8CszoTyPHFX5FMiHJKoXmxZRgPEF-Kj0GNZ9YJv9XQ=rw-e365-w1440",
+                "https://lh3.googleusercontent.com/K98KHE-1_0XWTYrWWpAaYsCOu_YXoQY6tX9CkLqnqDuE-hnGrWAGXOVRMlhThpVhYSBWQAGkVyHKhEVyoVHKQQHPJfA_ZQs=rw-e365-w1440",
                 "Google Tensor G3, 50MP main camera",
                 "128GB",
                 "Porcelain"
+            );
+            addPhone(
+                "iPhone 15",
+                "Apple",
+                799,
+                "Dynamic Island, USB-C",
+                "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pink-select-202309?wid=940&hei=1112&fmt=png-alpha",
+                "A16 Bionic, 48MP camera",
+                "128GB",
+                "Pink"
+            );
+            addPhone(
+                "Samsung Galaxy Z Fold 5",
+                "Samsung",
+                1799,
+                "Foldable flagship with S Pen support",
+                "https://images.samsung.com/is/image/samsung/p6pim/uk/2307/gallery/uk-galaxy-z-fold5-f946-sm-f946bzaaeub-thumb-537212069",
+                "7.6\" Main Display, Snapdragon 8 Gen 2",
+                "256GB",
+                "Cream"
             );
             addPhone(
                 "OnePlus 12",
@@ -71,23 +91,13 @@ actor {
                 "256GB",
                 "Flowy Emerald"
             );
-            addPhone(
-                "iPhone 15",
-                "Apple",
-                799,
-                "Dynamic Island, USB-C",
-                "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-pink?wid=5120&hei=2880&fmt=p-jpg",
-                "A16 Bionic, 48MP camera",
-                "128GB",
-                "Pink"
-            );
             // Classic Phones
             addPhone(
                 "Nokia 3310",
                 "Nokia",
                 59,
                 "The indestructible legend returns",
-                "https://upload.wikimedia.org/wikipedia/commons/3/31/Nokia_3310_blue.jpg",
+                "https://images.ctfassets.net/wcfotm6rrl7u/6eeA6QsS8WoE8YcuOYqiWA/e20b3526ee1ad38c76c9f9a788ced006/nokia_3310-blue-int.png",
                 "Snake II included, Month-long battery",
                 "16MB",
                 "Navy Blue"
@@ -97,10 +107,10 @@ actor {
                 "Motorola",
                 149,
                 "Iconic flip phone of the 2000s",
-                "https://upload.wikimedia.org/wikipedia/commons/f/f4/Motorola_RAZR_V3i_03.JPG",
+                "https://motorolarazr.com/wp-content/uploads/2020/02/motorola-razr-v3-pink.png",
                 "Slim design, VGA camera",
                 "5MB",
-                "Silver"
+                "Pink"
             );
         };
     };
