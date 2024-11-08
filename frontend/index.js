@@ -2,13 +2,12 @@ import { backend } from "declarations/backend";
 
 let cart = [];
 let phones = [];
-let currentFilter = 'all';
 
 async function loadPhones() {
     try {
         document.getElementById('loading').style.display = 'flex';
         phones = await backend.getAllPhones();
-        filterPhones(currentFilter);
+        filterPhones('all');
     } catch (error) {
         console.error("Error loading phones:", error);
     } finally {
@@ -17,7 +16,6 @@ async function loadPhones() {
 }
 
 function filterPhones(filter) {
-    currentFilter = filter;
     let filteredPhones = phones;
     
     if (filter === 'modern') {
@@ -53,9 +51,8 @@ function displayPhones(phones) {
                 <p class="brand">${phone.brand}</p>
                 <p class="specs">${phone.specs}</p>
                 <p class="storage">${phone.storage} • ${phone.color}</p>
-                <p class="description">${phone.description}</p>
                 <p class="price">$${phone.price}</p>
-                <button onclick="addToCart(${JSON.stringify(phone).replace(/"/g, '&quot;')})">ADD TO CART</button>
+                <button onclick="addToCart(${JSON.stringify(phone).replace(/"/g, '&quot;')})">Add to Cart</button>
             </div>
         `;
         container.appendChild(phoneElement);
@@ -74,8 +71,10 @@ function updateCartCount() {
 
 function showAddedAnimation() {
     const cartIcon = document.querySelector('.cart-icon');
-    cartIcon.classList.add('bounce');
-    setTimeout(() => cartIcon.classList.remove('bounce'), 500);
+    cartIcon.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        cartIcon.style.transform = 'scale(1)';
+    }, 200);
 }
 
 window.showCart = function() {
@@ -91,8 +90,11 @@ window.showCart = function() {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
         itemElement.innerHTML = `
-            <span>${item.name} - $${item.price}</span>
-            <button onclick="removeFromCart(${index})">Remove</button>
+            <span>${item.name}</span>
+            <div>
+                <span>$${item.price}</span>
+                <button onclick="removeFromCart(${index})" style="width: auto; margin-left: 10px; padding: 5px 10px;">Remove</button>
+            </div>
         `;
         cartItems.appendChild(itemElement);
     });
@@ -111,11 +113,9 @@ window.removeFromCart = function(index) {
     showCart();
 };
 
-// Event Listeners
 document.querySelector('.cart-icon').addEventListener('click', showCart);
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => filterPhones(btn.dataset.filter));
 });
 
-// Load phones when page loads
 document.addEventListener('DOMContentLoaded', loadPhones);
