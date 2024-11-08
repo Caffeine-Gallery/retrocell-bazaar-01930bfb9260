@@ -1,11 +1,14 @@
 type Phone = 
  record {
    brand: text;
+   color: text;
    description: text;
    id: nat;
    imageUrl: text;
    name: text;
    price: nat;
+   specs: text;
+   storage: text;
  };
 service : {
   getAllPhones: () -> (vec Phone) query;

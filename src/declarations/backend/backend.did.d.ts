@@ -4,8 +4,11 @@ import type { IDL } from '@dfinity/candid';
 
 export interface Phone {
   'id' : bigint,
+  'storage' : string,
   'name' : string,
+  'color' : string,
   'description' : string,
+  'specs' : string,
   'imageUrl' : string,
   'brand' : string,
   'price' : bigint,

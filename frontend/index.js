@@ -2,17 +2,41 @@ import { backend } from "declarations/backend";
 
 let cart = [];
 let phones = [];
+let currentFilter = 'all';
 
 async function loadPhones() {
     try {
         document.getElementById('loading').style.display = 'flex';
         phones = await backend.getAllPhones();
-        displayPhones(phones);
+        filterPhones(currentFilter);
     } catch (error) {
         console.error("Error loading phones:", error);
     } finally {
         document.getElementById('loading').style.display = 'none';
     }
+}
+
+function filterPhones(filter) {
+    currentFilter = filter;
+    let filteredPhones = phones;
+    
+    if (filter === 'modern') {
+        filteredPhones = phones.filter(phone => phone.price > 500);
+    } else if (filter === 'classic') {
+        filteredPhones = phones.filter(phone => phone.price <= 500);
+    }
+    
+    displayPhones(filteredPhones);
+    updateActiveFilter(filter);
+}
+
+function updateActiveFilter(filter) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === filter) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 function displayPhones(phones) {
@@ -27,6 +51,8 @@ function displayPhones(phones) {
             <div class="phone-info">
                 <h3>${phone.name}</h3>
                 <p class="brand">${phone.brand}</p>
+                <p class="specs">${phone.specs}</p>
+                <p class="storage">${phone.storage} • ${phone.color}</p>
                 <p class="description">${phone.description}</p>
                 <p class="price">$${phone.price}</p>
                 <button onclick="addToCart(${JSON.stringify(phone).replace(/"/g, '&quot;')})">ADD TO CART</button>
@@ -85,7 +111,11 @@ window.removeFromCart = function(index) {
     showCart();
 };
 
+// Event Listeners
 document.querySelector('.cart-icon').addEventListener('click', showCart);
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => filterPhones(btn.dataset.filter));
+});
 
 // Load phones when page loads
 document.addEventListener('DOMContentLoaded', loadPhones);

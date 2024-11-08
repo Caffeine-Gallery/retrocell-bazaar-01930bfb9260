@@ -1,8 +1,11 @@
 export const idlFactory = ({ IDL }) => {
   const Phone = IDL.Record({
     'id' : IDL.Nat,
+    'storage' : IDL.Text,
     'name' : IDL.Text,
+    'color' : IDL.Text,
     'description' : IDL.Text,
+    'specs' : IDL.Text,
     'imageUrl' : IDL.Text,
     'brand' : IDL.Text,
     'price' : IDL.Nat,
