@@ -1,0 +1,13 @@
+type Phone = 
+ record {
+   brand: text;
+   description: text;
+   id: nat;
+   imageUrl: text;
+   name: text;
+   price: nat;
+ };
+service : {
+  getAllPhones: () -> (vec Phone) query;
+  getPhone: (nat) -> (opt Phone) query;
+}
